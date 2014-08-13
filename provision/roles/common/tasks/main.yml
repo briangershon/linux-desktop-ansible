@@ -1,6 +1,6 @@
 ---
-- name: Update APT package cache
-  action: apt update_cache=yes
+#- name: Update APT package cache
+#  action: apt update_cache=yes
 
 # - name: Run apt-get upgrade
 #   action: command apt-get upgrade
@@ -19,7 +19,7 @@
     - git
 
 - name: Install compiler/base pkgs
-  apt: pkg={{item}} state=present update_cache=yes
+  apt: pkg={{item}} state=present
   with_items:
     - build-essential
     - gcc
@@ -27,7 +27,7 @@
     - checkinstall
 
 - name: Install additional pkgs
-  apt: pkg={{item}} state=present update_cache=yes
+  apt: pkg={{item}} state=present
   with_items:
     - tmux
     - ntp
