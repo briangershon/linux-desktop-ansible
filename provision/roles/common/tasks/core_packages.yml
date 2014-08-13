@@ -15,6 +15,10 @@
     - dropbox
     - curl
     - apg
+    - meld
+    - sshfs
+    - autojump
+    - retext
     # - zlib1g-dev
     #  - virtualbox
     # - ack-grep
