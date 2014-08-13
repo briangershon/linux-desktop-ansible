@@ -1,0 +1,11 @@
+---
+- hosts: 127.0.0.1
+  connection: local
+  user: brian
+  sudo: True
+
+  vars:
+    username: "brian"
+
+  roles:
+    - common

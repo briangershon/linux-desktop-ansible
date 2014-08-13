@@ -1,0 +1,3 @@
+
+* [ ] Bring over .gitconfig
+
