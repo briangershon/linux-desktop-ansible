@@ -39,5 +39,7 @@ Bootstrap:
 
 ## Inspiration
 
-* Concept of running Ansible locally for installing desktop machines: <http://www.compoundtheory.com/provision-your-local-machines/> and `install.sh` and `up.sh`
+* Concept of running Ansible locally for installing desktop machines and some nice recipes: <http://www.compoundtheory.com/provision-your-local-machines/> and `install.sh` and `up.sh`
+
+* Ansible desktop recipes: <https://github.com/kalos/ansible-desktop>
 

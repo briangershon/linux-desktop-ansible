@@ -5,56 +5,16 @@
 # - name: Run apt-get upgrade
 #   action: command apt-get upgrade
 
+- include: _git_config.yml
+
+- include: core_packages.yml
+  sudo: true
+
 - name: Sudoers | update sudoers file and validate
   lineinfile: "dest=/etc/sudoers
               insertafter=EOF
               line='{{ username }} ALL=(ALL) NOPASSWD: ALL'
               regexp='^{{ username }}'
               state=present"
+  sudo: true 
 
-- name: Install barebones pkgs
-  apt: pkg={{item}} state=present
-  with_items:
-    - vim
-    - git
-
-- name: Install compiler/base pkgs
-  apt: pkg={{item}} state=present
-  with_items:
-    - build-essential
-    - gcc
-    - g++
-    - checkinstall
-
-- name: Install additional pkgs
-  apt: pkg={{item}} state=present
-  with_items:
-    - tmux
-    - ntp
-    # - zlib1g-dev
-    #  - virtualbox
-    # - ack-grep
-    # - tree
-    # - nmap
-    # - traceroute
-    # - curl
-    # - apg
-    # - python-dev
-    # - libevent-dev
-    # - python-pip
-    # - python-setuptools
-    # - mercurial
-
-# - name: Make sure NTP is started up
-#   service: name=ntp state=started enabled=yes
-#   tags: ntp
-#
-# - name: Set timezone variables
-#   copy: content='America/Los_Angeles'
-#         dest=/etc/timezone
-#         owner=root
-#         group=root
-#         mode=0644
-#         backup=yes
-#   notify:
-#     - update timezone

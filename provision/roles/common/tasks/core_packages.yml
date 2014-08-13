@@ -1,0 +1,28 @@
+---
+- name: Install core packages
+  apt: pkg={{item}} state=present
+  with_items:
+    - vim
+    - git
+    - build-essential
+    - gcc
+    - g++
+    - checkinstall
+    - tmux
+    - ntp
+    - skype
+    - python-gpgme
+    - dropbox
+    - curl
+    - apg
+    # - zlib1g-dev
+    #  - virtualbox
+    # - ack-grep
+    # - tree
+    # - nmap
+    # - traceroute
+    # - python-dev
+    # - libevent-dev
+    # - python-pip
+    # - python-setuptools
+    # - mercurial
