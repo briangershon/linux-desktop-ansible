@@ -35,6 +35,11 @@ Bootstrap:
 ## Run Ansible for Realz
 
         cd ~/workspace/linux-desktop-ansible
+
+        # if running for first time use which runs with "ask sudo password" option
+        ./up-first-time.sh
+
+        # on subsequent times, use this (since we've added our user to sudo and don't need to prompt anymore)
         ./up.sh
 
 ## Inspiration

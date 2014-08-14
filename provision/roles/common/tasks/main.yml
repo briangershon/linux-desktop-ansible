@@ -5,11 +5,6 @@
 # - name: Run apt-get upgrade
 #   action: command apt-get upgrade
 
-- include: _git_config.yml
-
-- include: core_packages.yml
-  sudo: true
-
 - name: Sudoers | update sudoers file and validate
   lineinfile: "dest=/etc/sudoers
               insertafter=EOF
@@ -18,3 +13,9 @@
               state=present"
   sudo: true 
 
+- include: core_packages.yml
+  sudo: true
+
+- include: _git_config.yml
+- include: rvm.yml
+- include: nodejs.yml

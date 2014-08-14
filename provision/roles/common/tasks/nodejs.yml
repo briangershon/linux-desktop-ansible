@@ -1,0 +1,19 @@
+---
+- name: check if NodeJS is installed
+  stat: path=/usr/bin/node
+  register: st
+
+- name: Install PPA for NodeJS
+  shell: "curl -sL https://deb.nodesource.com/setup | sudo bash -"
+  sudo: true
+  notify: apt-update
+  when: not st.stat.exists
+
+- name: Install Node
+  apt: pkg={{ item }}
+  with_items:
+    - nodejs
+  sudo: true
+
+- debug: msg="NodeJS already installed."
+  when: st.stat.exists
