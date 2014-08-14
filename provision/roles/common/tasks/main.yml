@@ -19,3 +19,4 @@
 - include: _git_config.yml
 - include: rvm.yml
 - include: nodejs.yml
+- include: atom_editor.yml

@@ -26,6 +26,7 @@
     - tree
     - ack-grep
     - lftp
+    - python-apt
     # - zlib1g-dev
     #  - virtualbox
     # - ack-grep
