@@ -9,3 +9,5 @@
   roles:
     - common
     - googlechrome
+
+- include: ../../linux-desktop-private/playbook.yml

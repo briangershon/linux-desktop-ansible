@@ -20,7 +20,7 @@ Install VMWare Tools via menu.  Extract file, then run install script.
 
 Settings > Themes: Pick Cinnamon Theme.
 
-## Setup
+## Ansible Setup
 
 Setup local ssh key and upload public key to Github:
 
