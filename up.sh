@@ -20,7 +20,7 @@ if [ -d $workspace ]; then
 	fi
 
 	echo "Setting up Ansible in $ansible"
-	#for some reason have to go one level in. Don't ask, it works.	
+	#for some reason have to go one level in. Don't ask, it works.
 	cd $ansible/hacking
 	source env-setup
 
@@ -39,9 +39,8 @@ if [ -d $workspace ]; then
 
 	cd $dot_files/provision
 
-	ansible-playbook -vvv -i hosts $playbook
+	ansible-playbook -i hosts $playbook
 
 else
 	echo "$workspace does not exist. WTF?"
 fi
-
