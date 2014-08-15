@@ -11,7 +11,7 @@
               line='{{ username }} ALL=(ALL) NOPASSWD: ALL'
               regexp='^{{ username }}'
               state=present"
-  sudo: true 
+  sudo: true
 
 - include: core_packages.yml
   sudo: true
@@ -20,3 +20,4 @@
 - include: rvm.yml
 - include: nodejs.yml
 - include: atom_editor.yml
+- include: scripts.yml
