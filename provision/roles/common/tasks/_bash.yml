@@ -1,0 +1,3 @@
+---
+- name: copy .bashrc
+  copy: src=bashrc dest="~/.bashrc" mode=0664

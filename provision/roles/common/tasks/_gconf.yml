@@ -1,0 +1,3 @@
+---
+- name: copy my Gnome Terminal keybindings
+  copy: src=%gconf.xml dest="~/.gconf/apps/gnome-terminal/keybindings/%gconf.xml" mode=0664

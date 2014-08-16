@@ -17,6 +17,8 @@
   sudo: true
 
 - include: _git_config.yml
+- include: _bash.yml
+- include: _gconf.yml
 - include: rvm.yml
 - include: nodejs.yml
 - include: atom_editor.yml
