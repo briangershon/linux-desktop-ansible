@@ -1,0 +1,18 @@
+---
+- stat: path="~/dotfiles"
+  register: st_dotfiles
+- git: repo=git@github.com:briangershon/dotfiles.git
+    dest="~/dotfiles"
+  when: not st_dotfiles.stat.exists
+
+- name: symlink bash_profile
+  file: src=~/dotfiles/bash_profile dest=~/.bash_profile state=link
+
+- name: symlink bashrc
+  file: src=~/dotfiles/bashrc dest=~/.bashrc state=link
+
+- name: symlink gitconfig
+  file: src=~/dotfiles/gitconfig dest=~/.gitconfig state=link
+
+- name: symlink vimrc
+  file: src=~/dotfiles/vimrc dest=~/.vimrc state=link
