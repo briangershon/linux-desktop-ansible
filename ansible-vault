@@ -5,4 +5,4 @@ workspace="$HOME/workspace"
 ansible="$workspace/ansible"
   cd $ansible/hacking
   source env-setup
-  ansible-vault $@
+  ansible-vault $@ --vault-password-file ~/workspace/linux-desktop-private/vaultpass.txt
