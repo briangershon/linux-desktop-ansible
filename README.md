@@ -32,6 +32,16 @@ Bootstrap:
         wget https://raw.githubusercontent.com/briangershon/linux-desktop-ansible/master/install.sh
         ~/install.sh
 
+Add your secret Ansible Vault password which should never be checked into source control:
+
+        ~/workspace/linux-desktop-private/vaultpass.txt
+
+It's just a one-line text file with a password in it, so you don't have to re-enter password each time you run Ansible.
+
+Then you can encrypt a file of secrets and include that with `include_vars` to feed your templates.
+
+To run `ansible-vault` commands, call the `./ansible-vault` script in `~/workspace/linux-desktop-ansible`.
+
 ## Run Ansible for Realz
 
         cd ~/workspace/linux-desktop-ansible
