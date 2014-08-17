@@ -1,5 +1,5 @@
 ---
-- name: Creates Gnome Terminal keybindings directory
-  file: path="~/.gconf/apps/gnome-terminal/keybindings" state=directory
-- name: copy my Gnome Terminal keybindings
-  copy: src=%gconf.xml dest="~/.gconf/apps/gnome-terminal/keybindings/%gconf.xml" mode=0664
+- name: Custom Gnome Terminal "copy" keybinding to ctrl-c
+  shell: 'gconftool-2 /apps/gnome-terminal/keybindings/copy -s -t string "<Primary>c"'
+- name: Custom Gnome Terminal "paste" keybinding to ctrl-v
+  shell: 'gconftool-2 /apps/gnome-terminal/keybindings/paste -s -t string "<Primary>v"'
