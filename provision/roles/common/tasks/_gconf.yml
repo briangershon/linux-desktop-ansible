@@ -3,3 +3,6 @@
   shell: 'gconftool-2 /apps/gnome-terminal/keybindings/copy -s -t string "<Primary>c"'
 - name: Custom Gnome Terminal "paste" keybinding to ctrl-v
   shell: 'gconftool-2 /apps/gnome-terminal/keybindings/paste -s -t string "<Primary>v"'
+
+#- name: Set desktop background image
+#  shell: gsettings set org.gnome.desktop.background picture-uri 'file:///usr/share/backgrounds/linuxmint-qiana/papalars_9771422564.jpg'
