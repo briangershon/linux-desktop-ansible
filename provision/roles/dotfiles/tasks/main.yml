@@ -16,3 +16,6 @@
 
 - name: symlink vimrc
   file: src=~/dotfiles/vimrc dest=~/.vimrc state=link
+
+- name: symlink tmux
+  file: src=~/dotfiles/tmux.conf dest=~/.tmux.conf state=link
