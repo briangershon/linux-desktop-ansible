@@ -34,7 +34,8 @@ Bootstrap:
 
 Add your secret Ansible Vault password which should never be checked into source control:
 
-        ~/workspace/linux-desktop-private/vaultpass.txt
+        vim ~/workspace/linux-desktop-private/vaultpass.txt
+        sudo chmod 600 ~/workspace/linux-desktop-private/vaultpass.txt
 
 It's just a one-line text file with a password in it, so you don't have to re-enter password each time you run Ansible.
 
