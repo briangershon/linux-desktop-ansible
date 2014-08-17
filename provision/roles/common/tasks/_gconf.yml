@@ -1,3 +1,5 @@
 ---
+- name: Creates Gnome Terminal keybindings directory
+  file: path="~/.gconf/apps/gnome-terminal/keybindings" state=directory
 - name: copy my Gnome Terminal keybindings
   copy: src=%gconf.xml dest="~/.gconf/apps/gnome-terminal/keybindings/%gconf.xml" mode=0664

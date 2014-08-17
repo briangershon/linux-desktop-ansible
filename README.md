@@ -8,11 +8,11 @@ In VMWare Fusion, Pick Linux > Ubuntu with LinuxMint 17 ISO
 
 Choose "Customize Settings" button:
 
-        Network Adapter: Use the "Private to Mac" setting
-        Memory: Set at 8192
-        Hard Drive: Leave at 40 GB
+        Set Memory to something bigger than default
 
-Double-click on "Install Linux Mint" DVD image to install.
+Boot into Linux.
+
+Double-click on "Install Linux Mint" DVD image on Desktop to install.
 
 Install VMWare Tools via menu.  Extract file, then run install script.
 
@@ -47,4 +47,3 @@ Bootstrap:
 * Concept of running Ansible locally for installing desktop machines and some nice recipes: <http://www.compoundtheory.com/provision-your-local-machines/> and `install.sh` and `up.sh`
 
 * Ansible desktop recipes: <https://github.com/kalos/ansible-desktop>
-

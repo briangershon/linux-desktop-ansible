@@ -3,12 +3,16 @@
   stat: path=usr/bin/atom
   register: st
 
-- name: Install PPA for Atom
-  shell: "add-apt-repository ppa:webupd8team/atom"
-# NOTE: apt_repository with ppa doesn't work on Linux Mint
-#  apt_repository: repo="ppa:webupd8team/atom"
+- name: Install Repo for Atom (deb)
+  apt_repository: repo="deb http://ppa.launchpad.net/webupd8team/atom/ubuntu trusty main" update_cache=yes
   sudo: true
-  notify: apt-update
+  #notify: apt-update
+  when: not st.stat.exists
+
+- name: Install Repo for Atom (deb-src)
+  apt_repository: repo="deb-src http://ppa.launchpad.net/webupd8team/atom/ubuntu trusty main" update_cache=yes
+  sudo: true
+  #notify: apt-update
   when: not st.stat.exists
 
 - name: Install Atom
