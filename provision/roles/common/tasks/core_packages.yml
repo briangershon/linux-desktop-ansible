@@ -9,7 +9,6 @@
     - g++
     - checkinstall
     - tmux
-    - ntp
     - skype
     - python-gpgme
     - dropbox
