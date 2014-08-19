@@ -14,25 +14,34 @@ Boot into Linux.
 
 Double-click on "Install Linux Mint" DVD image on Desktop to install.
 
-* You may want to choose the option to Encrypt your hard-drive
+* During install steps, you may want to choose the option to encrypt your hard-drive, or when you create your user you can choose to encrypt just your home folder.
 
-Install VMWare Tools via menu.  Extract file, then run install script.
+Restart when prompted.
 
-        $ sudo reboot now
+Install VMWare Tools via menu:
 
-Settings > Themes: Pick Cinnamon Theme.
+* Extract file, then run install script. Accept all default parameters.
+
+* Restart virtual machine
+
+In Menu > System Settings:
+
+* Choose `Themes` and pick Cinnamon. Then pick a nice background image.
 
 ## Ansible Setup
 
-Setup local ssh key and upload public key to Github:
+Setup local ssh key:
 
         ssh-keygen -t rsa
 
-Bootstrap:
+Upload public key (`~/.ssh/id_rsa.pub`) to Github to clone repos.
+
+Bootstrap system with:
 
         cd ~
         wget https://raw.githubusercontent.com/briangershon/linux-desktop-ansible/master/install.sh
-        ~/install.sh
+        chmod u+x install.sh
+        ./install.sh
 
 Add your secret Ansible Vault password which should never be checked into source control:
 
@@ -43,7 +52,7 @@ It's just a one-line text file with a password in it, so you don't have to re-en
 
 Then you can encrypt a file of secrets and include that with `include_vars` to feed your templates.
 
-To run `ansible-vault` commands, call the `./ansible-vault` script in `~/workspace/linux-desktop-ansible`.
+To run `ansible-vault` commands, call the `./ansible-vault` script in `~/workspace/linux-desktop-ansible`. e.g. `ansible-vault edit <file>`
 
 ## Run Ansible for Realz
 
