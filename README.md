@@ -14,6 +14,8 @@ Boot into Linux.
 
 Double-click on "Install Linux Mint" DVD image on Desktop to install.
 
+* You may want to choose the option to Encrypt your hard-drive
+
 Install VMWare Tools via menu.  Extract file, then run install script.
 
         $ sudo reboot now
