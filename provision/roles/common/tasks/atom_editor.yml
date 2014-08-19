@@ -4,19 +4,19 @@
   register: st
 
 - name: Install Repo for Atom (deb)
-  apt_repository: repo="deb http://ppa.launchpad.net/webupd8team/atom/ubuntu trusty main" update_cache=yes
+  apt_repository: repo="deb http://ppa.launchpad.net/webupd8team/atom/ubuntu trusty main"
   sudo: true
-  #notify: apt-update
+  notify: apt-update
   when: not st.stat.exists
 
 - name: Install Repo for Atom (deb-src)
-  apt_repository: repo="deb-src http://ppa.launchpad.net/webupd8team/atom/ubuntu trusty main" update_cache=yes
+  apt_repository: repo="deb-src http://ppa.launchpad.net/webupd8team/atom/ubuntu trusty main"
   sudo: true
-  #notify: apt-update
+  notify: apt-update
   when: not st.stat.exists
 
 - name: Install Atom
-  apt: pkg={{ item }}
+  apt: pkg={{ item }} force=yes
   with_items:
     - atom
   sudo: true
