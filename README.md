@@ -64,6 +64,29 @@ To run `ansible-vault` commands, call the `./ansible-vault` script in `~/workspa
         # on subsequent times, use this (since we've added our user to sudo and don't need to prompt anymore)
         ./up.sh
 
+## VMWare Fusion OSX Key Mappings for Linux Mint (Ubuntu)
+
+These are mappings in VMWare Fusion Preferences > Keyboard & Mouse.
+
+I started with using "Default" profile (not Mac profile), then added in these key mappings:
+
+To support Apple-Tab to move between applications:
+
+* I wasn't able to get this to work via enabling Apple-T and changing mapping to Ctrl-Alt-Tab. Even after also turning off "Enable Mac OS Host Shortcuts".
+
+* Though `Option-Tab` by default does the equivalent. And still allows you to use the Mac OS Host shortcuts.
+
+Map `Apple` to `Ctrl` to support Apple-[ and Apple-] for outdenting/indenting in Atom editor.
+
+To support Atom editor (and begin/end line in Terminal) move to home/end of line and disable Cinnamon "Push Tile Left/Right"
+
+* `Apple-Right` -> `End`
+* `Apple-Left` -> `Home`
+* `Shift-Apple-Left` -> `Shift-Home`    # supports select to beginning of line
+* `Shift-Apple-Right` -> `Shift-End`    # supports select to end of a line
+
+I discovered that Apple key by itself will bring up Mint Menu.
+
 ## Inspiration
 
 * Concept of running Ansible locally for installing desktop machines and some nice recipes: <http://www.compoundtheory.com/provision-your-local-machines/> and `install.sh` and `up.sh`
