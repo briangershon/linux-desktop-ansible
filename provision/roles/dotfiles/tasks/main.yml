@@ -5,12 +5,19 @@
     dest="~/dotfiles"
   when: not st_dotfiles.stat.exists
 
+# - stat: path=~/.profile
+#   register: st_profile
+# - name: Remove .profile if it is not a symlink
+#   file: path=~/.profile state=absent
+#   when: not st_profile.stat.islnk
+# - name: symlink profile
+#   file: src=~/dotfiles/profile dest=~/.profile state=link
+
 - stat: path=~/.bash_profile
   register: st_bash_profile
 - name: Remove .bash_profile if it is not a symlink
   file: path=~/.bash_profile state=absent
   when: not st_bash_profile.stat.islnk
-
 - name: symlink bash_profile
   file: src=~/dotfiles/bash_profile dest=~/.bash_profile state=link
 
@@ -19,7 +26,6 @@
 - name: Remove .bashrc if it is not a symlink
   file: path=~/.bashrc state=absent
   when: not st_bashrc.stat.islnk
-
 - name: symlink bashrc
   file: src=~/dotfiles/bashrc dest=~/.bashrc state=link
 

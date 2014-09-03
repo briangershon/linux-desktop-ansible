@@ -2,11 +2,12 @@
 - name: Install core packages
   apt: pkg={{item}} state=present
   with_items:
-    - vim
-    - git
     - build-essential
     - gcc
     - g++
+    - vim
+    - git
+    - mercurial
     - checkinstall
     - tmux
     - skype
@@ -26,14 +27,18 @@
     - ack-grep
     - lftp
     - python-apt
+    # - conky-all
+    # - deja-dup
+    - docker.io
+    - arduino
     # - zlib1g-dev
     #  - virtualbox
-    # - ack-grep
-    # - tree
+    - ack-grep
+    - tree
     # - nmap
     # - traceroute
     # - python-dev
     # - libevent-dev
     # - python-pip
     # - python-setuptools
-    # - mercurial
+    - gconf-editor

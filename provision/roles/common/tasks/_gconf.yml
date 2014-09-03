@@ -4,5 +4,8 @@
 - name: Custom Gnome Terminal "paste" keybinding to ctrl-v
   shell: 'gconftool-2 /apps/gnome-terminal/keybindings/paste -s -t string "<Primary>v"'
 
+# - name: Set gnome-terminal Default profile to run as a login shell (for rvm)
+#   shell: 'gconftool-2 /apps/gnome-terminal/profiles/Default/login_shell -s -t bool true'
+
 #- name: Set desktop background image
 #  shell: gsettings set org.gnome.desktop.background picture-uri 'file:///usr/share/backgrounds/linuxmint-qiana/papalars_9771422564.jpg'
