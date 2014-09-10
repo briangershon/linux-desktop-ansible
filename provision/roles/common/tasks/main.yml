@@ -20,4 +20,3 @@
 - include: rvm.yml
 - include: nodejs.yml
 - include: atom_editor.yml
-- include: scripts.yml
