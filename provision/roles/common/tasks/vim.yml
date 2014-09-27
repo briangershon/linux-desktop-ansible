@@ -1,0 +1,14 @@
+---
+- name: Install Vim plugin dependencies
+  apt: pkg={{item}} state=present
+  sudo: true
+  with_items:
+    - python-dev
+    - cmake
+    - silversearcher-ag
+
+- name: Install plugins
+  command: ./sync-bundles.sh chdir=~/.vim creates=~/.vim/bundle/vim-javascript
+
+- name: Compile YouCompleteMe
+  command: ./install.sh chdir=~/.vim/bundle/YouCompleteMe

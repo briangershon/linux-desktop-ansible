@@ -1,0 +1,5 @@
+---
+- name: Install security-fixes
+  apt: pkg={{item}} state=latest update_cache=yes
+  with_items:
+    - bash

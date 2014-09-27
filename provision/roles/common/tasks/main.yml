@@ -16,6 +16,10 @@
 - include: core_packages.yml
   sudo: true
 
+- include: security.yml
+  sudo: true
+
+- include: vim.yml
 - include: _gconf.yml
 - include: rvm.yml
 - include: nodejs.yml

@@ -29,11 +29,14 @@
 - name: symlink bashrc
   file: src=~/dotfiles/bashrc dest=~/.bashrc state=link
 
-- name: symlink gitconfig
+- name: symlink .gitconfig
   file: src=~/dotfiles/gitconfig dest=~/.gitconfig state=link
 
-- name: symlink vimrc
+- name: symlink .vim
+  file: src=~/dotfiles/vim dest=~/.vim state=link
+
+- name: symlink .vimrc
   file: src=~/dotfiles/vimrc dest=~/.vimrc state=link
 
-- name: symlink tmux
+- name: symlink .tmux
   file: src=~/dotfiles/tmux.conf dest=~/.tmux.conf state=link
