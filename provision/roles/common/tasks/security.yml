@@ -1,5 +1,7 @@
 ---
-- name: Install security-fixes
-  apt: pkg={{item}} state=latest update_cache=yes
-  with_items:
-    - bash
+- name: Install unattended-upgrades
+  action: apt pkg=unattended-upgrades state=present
+- name: Install update-notifier-common (also has 10periodic file)
+  action: apt pkg=update-notifier-common state=present
+- name: Enable unattended-upgrades to run daily
+  action: lineinfile dest=/etc/apt/apt.conf.d/10periodic line='APT::Periodic::Unattended-Upgrade "1";' state=present
