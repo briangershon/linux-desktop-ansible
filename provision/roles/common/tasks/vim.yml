@@ -11,4 +11,4 @@
   command: ./sync-bundles.sh chdir=~/.vim creates=~/.vim/bundle/vim-javascript
 
 - name: Compile YouCompleteMe
-  command: ./install.sh chdir=~/.vim/bundle/YouCompleteMe
+  command: ./install.sh chdir=~/.vim/bundle/YouCompleteMe creates=~/.vim/bundle/YouCompleteMe
