@@ -1,13 +1,22 @@
 ---
+- name: Check if Docker is installed
+  stat: path=/usr/bin/docker
+  register: st
+
 - name: Add Docker repository key
   command: apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 36A1D7869245C8950F966E92D8576A8BA88D21E9
   sudo: true
+  when: not st.stat.exists
+
 - name: Add Docker repository
   shell: echo deb https://get.docker.com/ubuntu docker main > /etc/apt/sources.list.d/docker.list
   sudo: true
+  when: not st.stat.exists
+
 - name: Docker apt-update
   apt: update_cache=yes
   sudo: true
+  when: not st.stat.exists
 
 - name: Install core packages
   apt: pkg={{item}} state=present
@@ -15,7 +24,9 @@
     - cgroup-lite
     - lxc
   sudo: true
+  when: not st.stat.exists
 
-- name: Install latest Docker
+- name: Install Docker
   apt: pkg=lxc-docker state=present
   sudo: true
+  when: not st.stat.exists

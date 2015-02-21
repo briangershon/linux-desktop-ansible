@@ -1,9 +1,5 @@
 ---
-#- name: Update APT package cache
-#  action: apt update_cache=yes
-
-# - name: Run apt-get upgrade
-#   action: command apt-get upgrade
+- include: upgrade.yml
 
 - name: Sudoers | update sudoers file and validate
   lineinfile: "dest=/etc/sudoers

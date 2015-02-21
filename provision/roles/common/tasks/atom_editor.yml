@@ -1,25 +1,18 @@
 ---
-- name: check if Atom editor is installed
-  stat: path=usr/bin/atom
+- name: Check if Atom editor is installed -- See https://github.com/atom/atom/releases/latest for newer versions
+  stat: path=/usr/bin/atom
   register: st
 
-- name: Install Repo for Atom (deb)
-  apt_repository: repo="deb http://ppa.launchpad.net/webupd8team/atom/ubuntu trusty main"
-  sudo: true
-  notify: apt-update
+- name: Download Atom v0.182.0
+  get_url: url=https://github.com/atom/atom/releases/download/v0.182.0/atom-amd64.deb dest=/tmp/atom-amd64.deb mode=0440
   when: not st.stat.exists
 
-- name: Install Repo for Atom (deb-src)
-  apt_repository: repo="deb-src http://ppa.launchpad.net/webupd8team/atom/ubuntu trusty main"
+- name: Install Atom v0.182.0
+  command: dpkg --skip-same-version -i /tmp/atom-amd64.deb
   sudo: true
-  notify: apt-update
   when: not st.stat.exists
 
-- name: Install Atom
-  apt: pkg={{ item }} force=yes
-  with_items:
-    - atom
+- name: Remove /tmp/atom-amd64.deb
+  file: path=/tmp/atom-amd64.deb state=absent
   sudo: true
-
-- debug: msg="Atom already installed."
-  when: st.stat.exists
+  when: not st.stat.exists
