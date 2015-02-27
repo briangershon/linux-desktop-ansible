@@ -21,3 +21,4 @@
 - include: nodejs.yml
 - include: atom_editor.yml
 - include: containers.yml
+- include: lastpass.yml

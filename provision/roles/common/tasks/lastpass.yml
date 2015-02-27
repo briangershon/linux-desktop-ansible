@@ -1,0 +1,24 @@
+---
+# - name: Check if LastPass is installed
+#   stat: path=/usr/bin/atom
+#   register: st
+
+- name: Download LastPass
+  get_url: url=https://lastpass.com/lplinux.tar.bz2 dest=/tmp/lplinux.tar.bz2 mode=0440
+
+- name: Create extraction directory
+  file: path=/tmp/lastpass state=directory
+  # when: not st.stat.exists
+
+- name: Extract LastPass
+  unarchive: src=/tmp/lplinux.tar.bz2 dest=/tmp/lastpass
+  # when: not st.stat.exists
+
+- name: Install LastPass
+  shell: /tmp/lastpass/install_lastpass.sh
+  # when: not st.stat.exists
+
+- name: Remove /tmp/lastpass
+  file: path=/tmp/lastpass state=absent
+  sudo: true
+  # when: not st.stat.exists
