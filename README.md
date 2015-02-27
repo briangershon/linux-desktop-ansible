@@ -34,7 +34,8 @@ Setup local ssh key:
 
         ssh-keygen -t rsa
 
-Upload public key (`~/.ssh/id_rsa.pub`) to Github to clone repos.
+Upload public key (`~/.ssh/id_rsa.pub`) to Github to clone private repos.
+Upload public key (`~/.ssh/id_rsa.pub`) to Bitbucket to clone private repos.
 
 Bootstrap system with:
 

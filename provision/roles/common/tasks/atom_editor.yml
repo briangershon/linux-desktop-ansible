@@ -3,11 +3,11 @@
   stat: path=/usr/bin/atom
   register: st
 
-- name: Download Atom v0.182.0
-  get_url: url=https://github.com/atom/atom/releases/download/v0.182.0/atom-amd64.deb dest=/tmp/atom-amd64.deb mode=0440
+- name: Download Atom v0.183.0
+  get_url: url=https://github.com/atom/atom/releases/download/v0.183.0/atom-amd64.deb dest=/tmp/atom-amd64.deb mode=0440
   when: not st.stat.exists
 
-- name: Install Atom v0.182.0
+- name: Install Atom v0.183.0
   command: dpkg --skip-same-version -i /tmp/atom-amd64.deb
   sudo: true
   when: not st.stat.exists

@@ -30,3 +30,17 @@
   apt: pkg=lxc-docker state=present
   sudo: true
   when: not st.stat.exists
+
+- name: Check if Docker-Compose is installed
+  stat: path=/usr/local/bin/docker-compose
+  register: compose
+
+- name: Install Docker-Compose (Fig)
+  shell: /usr/bin/curl -L https://github.com/docker/compose/releases/download/1.1.0/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose
+  sudo: true
+  when: not compose.stat.exists
+
+- name: Make Docker-Compose runnable
+  file: path=/usr/local/bin/docker-compose owner={{username}} group={{username}} mode=u+x
+  sudo: true
+  when: not compose.stat.exists
